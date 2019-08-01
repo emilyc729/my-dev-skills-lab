@@ -12,18 +12,20 @@ $('#submit').on('click', function () {
     $('#skill').val('');
 });
 
-//var delsList = [];
+var delsList = [];
 $('ul').on('click', 'button', function () {
     $(this).closest('li').fadeOut(1000, function () {
         //console.log(this.outerHTML);
-        //delsList.push(`${this.outerHTML}`);
-        //localStorage.setItem('delsList', JSON.stringify(delsList));
+        delsList.push(`${this.outerHTML}`);
+        localStorage.setItem('delsList', JSON.stringify(delsList));
         $(this).remove();
     });
 });
 
-
+var deleted = JSON.parse(localStorage.getItem('delsList'));
+console.log(deleted);
 var savedSkills = JSON.parse(localStorage.getItem('skillsList'));
-for (var i = 0; i < savedSkills.length; i++) {
+$.each(savedSkills, function(i) {
     $('ul').append(savedSkills[i]);
-}
+    
+});
