@@ -1,0 +1,50 @@
+div.container {
+    text-align: center;
+    border: 1px solid grey;
+    width: 400px;
+    margin: 0 auto;
+    font-family: Helvetica, sans-serif;
+}
+
+h3 {
+    text-align: center;
+    background-color: #9DC184;
+    margin: 0;
+    color: white;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0 10px;
+    text-align: left; 
+}
+
+ul li button{
+    background-color: #D36D6A;
+    color: white;
+    margin-right: 10px;
+
+}
+
+ul li {
+    color: #F5AC54;
+}
+
+div.getSkill {
+    padding: 10px;
+    text-align: left;
+}
+
+input#skill {
+    width: 80%;
+    border: 2px solid #9DC184;
+    padding: 5px 2px;
+}
+button#submit {
+    margin-left: 8px;
+    border: 2px solid #9DC184;
+    color: #9DC184;
+    padding: 5px;
+    
+}
