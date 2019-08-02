@@ -1,5 +1,15 @@
 
 var skillsList = [];
+
+if(localStorage.skills) {
+    skillsList = JSON.parse(localStorage.getItem('skills'));
+    //console.log(skillsList);
+    $.each(skillsList, function(i) {
+        $('ul').append(skillsList[i]);
+        
+    });
+}
+
 $('#submit').on('click', function () {
 
     var $input = $('#skill').val();
@@ -8,24 +18,23 @@ $('#submit').on('click', function () {
     //console.log($input);
     skillsList.push($newSkill);
     //console.log(skillsList);
-    localStorage.setItem('skillsList', JSON.stringify(skillsList));
+    localStorage.setItem('skills', JSON.stringify(skillsList));
     $('#skill').val('');
 });
 
-var delsList = [];
 $('ul').on('click', 'button', function () {
     $(this).closest('li').fadeOut(1000, function () {
-        //console.log(this.outerHTML);
-        delsList.push(`${this.outerHTML}`);
-        localStorage.setItem('delsList', JSON.stringify(delsList));
+        skillsList = JSON.parse(localStorage.getItem('skills'));
+        //console.log(this);
+        
+        let delSkill = `<li>${$(this).html()}</li>`;
+        //console.log(delSkill);
+        let delIdx = skillsList.indexOf(delSkill);
+        //console.log(delIdx);
+        skillsList.splice(delIdx, 1);
+        localStorage.setItem('skills', JSON.stringify(skillsList));
         $(this).remove();
     });
 });
 
-var deleted = JSON.parse(localStorage.getItem('delsList'));
-console.log(deleted);
-var savedSkills = JSON.parse(localStorage.getItem('skillsList'));
-$.each(savedSkills, function(i) {
-    $('ul').append(savedSkills[i]);
-    
-});
+

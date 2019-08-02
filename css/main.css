@@ -29,11 +29,13 @@ ul li button{
 
 ul li {
     color: #F5AC54;
+    margin-bottom: 5px;
 }
 
 div.getSkill {
     padding: 10px;
     text-align: left;
+
 }
 
 input#skill {
